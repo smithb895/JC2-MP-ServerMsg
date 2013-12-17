@@ -19,10 +19,9 @@ local colors = {
 	Color(0, 255, 100)
 }
 
-
 function welcomeMsg(args)
 	-- Show welcome messages to player
-	for i in messages do
+	for i, v in ipairs(messages) do
 		Chat:Send(args.player,messages[i],colors[1])
 	end
 	
