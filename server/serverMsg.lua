@@ -1,4 +1,4 @@
--- Server Message Script
+-- Simple Server Welcome Message Script
 -- Author: Anzu
 -- http://AnzusWarGames.info
 
@@ -13,9 +13,6 @@ local messages = {
 "www.AnzusWarGames.info/forums",
 "Teamspeak Server: TS3.AnzusWarGames.info",
 "Press F5 for Help, F6 for Player List, B for Buy Menu",
-"Please respect others while on our servers. Abusive language will get you kicked/banned!",
-"Do not spam chat and do not advertise for other servers!  This will get you kicked/banned!",
-"If you think you found a bug, please post a report on our forums describing it and we will check into it! :)"
 }
 local colors = {
 	Color(0, 255, 0),
@@ -25,17 +22,11 @@ local colors = {
 
 function welcomeMsg(args)
 	-- Show welcome messages to player
-	for i = 1, 8 do
+	for i in messages do
 		Chat:Send(args.player,messages[i],colors[1])
 	end
 	
 	return true
 end
-
---local i = 1
---while i<=2 do
-	--Chat:Broadcast(message1,color1)
-	--i = i + 1
---end
 
 Events:Subscribe("PlayerJoin", welcomeMsg)
